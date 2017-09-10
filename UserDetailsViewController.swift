@@ -55,7 +55,7 @@ class UserDetailsViewController: UIViewController, UINavigationControllerDelegat
             
             if error != nil {
                 
-                var errorMessage = "Update failed. please try again"
+                var errorMessage = "Update failed. please try again later"
                 
                 let error = error as NSError?
                 
@@ -116,56 +116,7 @@ class UserDetailsViewController: UIViewController, UINavigationControllerDelegat
             
         }
         
-        
-       //Add female users 
-        
-        /*
-        let urlArray = ["http://d39ya49a1fwv14.cloudfront.net/wp-content/uploads/2013/11/superheroe-crimson-avenger.jpg", "https://i.pinimg.com/originals/4e/69/62/4e696257797b01708300b7bd0aae9306.jpg", "https://upload.wikimedia.org/wikipedia/en/e/e2/Unbeatable_Squirrel_Girl.jpg", "http://comicsalliance.com/files/2015/08/storm-feat-630x420.jpg", "https://news.marvel.com/wp-content/uploads/sites/28/2016/11/5821ee7607491.jpg", "https://i.annihil.us/u/prod/marvel/i/mg/c/90/57e005bcd9d7e/portrait_incredible.jpg", "http://pre02.deviantart.net/24c8/th/pre/f/2013/176/3/9/jubilee_by_aaronpage-d6anooj.jpg", "http://www.okayafrica.com/wp-content/uploads/comic-republic-nigerian-superhero-Ireti.jpg"]
-        
-        var counter = 0
-        
-        for urlString in urlArray {
-            
-            counter += 1
-            
-            let url = URL(string: urlString)!
-            
-            do {
-                
-            let data = try Data(contentsOf: url)
-                
-                let imageFile = PFFile(name: "photo.png", data: data)
-                
-                let user = PFUser()
-                
-                user["photo"] = imageFile
-                
-                user.username = String(counter)
-                
-                user.password = "password"
-                
-                user["isInterestedInWomen"] = false
-                
-                user["isFemale"] = true
-                
-                user.signUpInBackground(block: { (success, error) in
-                    
-                    if success {
-                        
-                        print("User signed up")
-                    }
-                    
-                })
-                
-                
-                
-            } catch {
-                
-                print("Couldn't get data")
-            }
-            
-        } 
- */
+ 
         
         
     }

@@ -18,6 +18,9 @@
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		9B53DECE1F603633005614F7 /* SwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53DECD1F603632005614F7 /* SwipingViewController.swift */; };
+		9B53DED01F645B5E005614F7 /* heart-shape-icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B53DECF1F645B5E005614F7 /* heart-shape-icon.jpg */; };
+		9B53DED21F645B73005614F7 /* x-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B53DED11F645B73005614F7 /* x-icon.png */; };
+		9B53DED41F646DB1005614F7 /* ebae-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B53DED31F646DB1005614F7 /* ebae-image.jpg */; };
 		9B91DD0D1F5C8F76009C1074 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B91DD0C1F5C8F76009C1074 /* UserDetailsViewController.swift */; };
 		9B91DD0F1F5C905B009C1074 /* person-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B91DD0E1F5C905B009C1074 /* person-icon.png */; };
 /* End PBXBuildFile section */
@@ -38,6 +41,9 @@
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		9B53DECD1F603632005614F7 /* SwipingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipingViewController.swift; sourceTree = "<group>"; };
+		9B53DECF1F645B5E005614F7 /* heart-shape-icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "heart-shape-icon.jpg"; path = "../../heart-shape-icon.jpg"; sourceTree = "<group>"; };
+		9B53DED11F645B73005614F7 /* x-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "x-icon.png"; path = "../../x-icon.png"; sourceTree = "<group>"; };
+		9B53DED31F646DB1005614F7 /* ebae-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ebae-image.jpg"; path = "../../ebae-image.jpg"; sourceTree = "<group>"; };
 		9B91DD0C1F5C8F76009C1074 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsViewController.swift; path = ../UserDetailsViewController.swift; sourceTree = "<group>"; };
 		9B91DD0E1F5C905B009C1074 /* person-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "person-icon.png"; path = "../../person-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +101,9 @@
 				9B53DECD1F603632005614F7 /* SwipingViewController.swift */,
 				9B91DD0C1F5C8F76009C1074 /* UserDetailsViewController.swift */,
 				9B91DD0E1F5C905B009C1074 /* person-icon.png */,
+				9B53DECF1F645B5E005614F7 /* heart-shape-icon.jpg */,
+				9B53DED11F645B73005614F7 /* x-icon.png */,
+				9B53DED31F646DB1005614F7 /* ebae-image.jpg */,
 			);
 			name = Tinder;
 			path = ParseStarterProject;
@@ -184,7 +193,10 @@
 			files = (
 				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
+				9B53DED41F646DB1005614F7 /* ebae-image.jpg in Resources */,
 				9B91DD0F1F5C905B009C1074 /* person-icon.png in Resources */,
+				9B53DED01F645B5E005614F7 /* heart-shape-icon.jpg in Resources */,
+				9B53DED21F645B73005614F7 /* x-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@ import Parse
 
 class SwipingViewController: UIViewController {
 
+    @IBOutlet var errorLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     
     var displayedUserID = ""
@@ -70,6 +71,7 @@ class SwipingViewController: UIViewController {
             label.transform = stretchAndRotation
             
             label.center = CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)
+        
             
         }
         
@@ -86,10 +88,12 @@ class SwipingViewController: UIViewController {
         
         var ignoredUsers = [""]
         
+        ignoredUsers.remove(at: 0)
+        
         if let acceptedUsers = PFUser.current()?["accepted"] {
             
             ignoredUsers += acceptedUsers as! Array
-            
+
         }
         
         if let rejectedUsers = PFUser.current()?["rejected"] {
@@ -98,39 +102,88 @@ class SwipingViewController: UIViewController {
             
         }
         
+        
         query?.whereKey("objectId", notContainedIn: ignoredUsers)
         
         query?.limit = 1
         
-        query?.findObjectsInBackground(block: { (objects, error) in
+        query?.countObjectsInBackground(block: { (count: Int32, error) in
             
-            if let users = objects {
+            if error != nil {
                 
-                for object in users {
+                print(error)
+            }
+            
+            var userCount = Int(count)
+            
+            print("Users left: \(userCount)")
+            
+            if userCount == 1 {
                 
-                    if let user = object as? PFUser {
-                        
-                        self.displayedUserID = user.objectId!
-                        
-                        let imageFile = user["photo"] as! PFFile
-                        
-                        imageFile.getDataInBackground(block: { (data, error) in
-                            
-                            if let imageData = data {
-                                
-                                self.imageView.image = UIImage(data: imageData)
-                                
-                            } 
-                            
-                        })
-                        
-                    }
+                if ignoredUsers.contains(self.displayedUserID) {
+                
+                    userCount = userCount - 1
                     
                 }
                 
+                if (self.displayedUserID).isEmpty {
+                    
+                    print("DisplayedUserID Is empty")
+                    
+                    userCount = 0
+                    
+                }
+           
+            } else if userCount == 0 {
+                
+                self.imageView.image = UIImage(named: "person-icon.png")
+        
+                self.imageView.isUserInteractionEnabled = false
+                
+                self.errorLabel.text = "There are no more users in your area. Check back again later"
+                
+                self.errorLabel.textColor = UIColor.white
+                
+            } else {
+                print("...Still swiping through users...")
             }
             
-        })
+
+            
+            query?.findObjectsInBackground(block: { (objects, error) in
+                
+                if let users = objects {
+                    
+                    for object in users {
+                        
+                        if let user = object as? PFUser {
+                            
+                            self.displayedUserID = user.objectId!
+                            
+                            let imageFile = user["photo"] as! PFFile
+                            
+                            imageFile.getDataInBackground(block: { (data, error) in
+                                
+                                if let imageData = data {
+                                    
+                                    self.imageView.image = UIImage(data: imageData)
+                                    
+                                    
+                                }
+                                
+                            })
+                            
+                        }
+                        
+                    } //for - in loop ends
+                    
+                }
+                
+            })
+            
+            
+        }) // end */
+        
         
     }
     
@@ -147,6 +200,8 @@ class SwipingViewController: UIViewController {
         imageView.addGestureRecognizer(gesture)
         
         updateImage()
+        
+                
     }
 
     override func didReceiveMemoryWarning() {
