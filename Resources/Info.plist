@@ -6,6 +6,8 @@
 	<string>To show other users your beautiful face</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To find other people near you</string>
 	<key>CFBundleDisplayName</key>
 	<string>Tinder</string>
 	<key>CFBundleExecutable</key>

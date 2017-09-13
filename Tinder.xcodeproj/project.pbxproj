@@ -21,6 +21,8 @@
 		9B53DED01F645B5E005614F7 /* heart-shape-icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B53DECF1F645B5E005614F7 /* heart-shape-icon.jpg */; };
 		9B53DED21F645B73005614F7 /* x-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B53DED11F645B73005614F7 /* x-icon.png */; };
 		9B53DED41F646DB1005614F7 /* ebae-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9B53DED31F646DB1005614F7 /* ebae-image.jpg */; };
+		9B53DEDC1F66DAFD005614F7 /* MatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53DEDB1F66DAFD005614F7 /* MatchesViewController.swift */; };
+		9B53DEDE1F66DF02005614F7 /* MatchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53DEDD1F66DF02005614F7 /* MatchesTableViewCell.swift */; };
 		9B91DD0D1F5C8F76009C1074 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B91DD0C1F5C8F76009C1074 /* UserDetailsViewController.swift */; };
 		9B91DD0F1F5C905B009C1074 /* person-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B91DD0E1F5C905B009C1074 /* person-icon.png */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		9B53DECF1F645B5E005614F7 /* heart-shape-icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "heart-shape-icon.jpg"; path = "../../heart-shape-icon.jpg"; sourceTree = "<group>"; };
 		9B53DED11F645B73005614F7 /* x-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "x-icon.png"; path = "../../x-icon.png"; sourceTree = "<group>"; };
 		9B53DED31F646DB1005614F7 /* ebae-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "ebae-image.jpg"; path = "../../ebae-image.jpg"; sourceTree = "<group>"; };
+		9B53DEDB1F66DAFD005614F7 /* MatchesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchesViewController.swift; path = ../MatchesViewController.swift; sourceTree = "<group>"; };
+		9B53DEDD1F66DF02005614F7 /* MatchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesTableViewCell.swift; sourceTree = "<group>"; };
 		9B91DD0C1F5C8F76009C1074 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsViewController.swift; path = ../UserDetailsViewController.swift; sourceTree = "<group>"; };
 		9B91DD0E1F5C905B009C1074 /* person-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "person-icon.png"; path = "../../person-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,8 +102,10 @@
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				814C3AC61B69877600E307BB /* Main.storyboard */,
-				9B53DECD1F603632005614F7 /* SwipingViewController.swift */,
 				9B91DD0C1F5C8F76009C1074 /* UserDetailsViewController.swift */,
+				9B53DECD1F603632005614F7 /* SwipingViewController.swift */,
+				9B53DEDB1F66DAFD005614F7 /* MatchesViewController.swift */,
+				9B53DEDD1F66DF02005614F7 /* MatchesTableViewCell.swift */,
 				9B91DD0E1F5C905B009C1074 /* person-icon.png */,
 				9B53DECF1F645B5E005614F7 /* heart-shape-icon.jpg */,
 				9B53DED11F645B73005614F7 /* x-icon.png */,
@@ -207,9 +213,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B53DEDC1F66DAFD005614F7 /* MatchesViewController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				9B53DECE1F603633005614F7 /* SwipingViewController.swift in Sources */,
+				9B53DEDE1F66DF02005614F7 /* MatchesTableViewCell.swift in Sources */,
 				9B91DD0D1F5C8F76009C1074 /* UserDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

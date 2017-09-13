@@ -100,6 +100,15 @@ class UserDetailsViewController: UIViewController, UINavigationControllerDelegat
             
         }
         
+        /* 
+         
+         crashes with large photos 
+         error messege = 
+         *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'Could not save file data for profile.png : Error Domain=NSCocoaErrorDomain Code=263 "Failed to create PFFile with data: data is larger than 10MB." UserInfo={NSLocalizedDescription=Failed to create PFFile with data: data is larger than 10MB.}'
+         *** First throw call stack:
+         
+         */
+        
         if let photo = PFUser.current()?["photo"] as? PFFile {
             
             photo.getDataInBackground(block: { (data, error) in

@@ -93,7 +93,7 @@ class SwipingViewController: UIViewController {
         if let acceptedUsers = PFUser.current()?["accepted"] {
             
             ignoredUsers += acceptedUsers as! Array
-
+        
         }
         
         if let rejectedUsers = PFUser.current()?["rejected"] {
@@ -104,6 +104,16 @@ class SwipingViewController: UIViewController {
         
         
         query?.whereKey("objectId", notContainedIn: ignoredUsers)
+        
+        if let latitude = (PFUser.current()?["location"] as AnyObject).latitude {
+            
+            if let longitude = (PFUser.current()?["location"] as AnyObject).longitude {
+                
+                query?.whereKey("location", withinGeoBoxFromSouthwest: PFGeoPoint(latitude: latitude - 1, longitude: longitude - 1), toNortheast: PFGeoPoint(latitude: latitude + 1, longitude: longitude + 1))
+                
+            }
+            
+        }
         
         query?.limit = 1
         
@@ -162,16 +172,22 @@ class SwipingViewController: UIViewController {
                             
                             let imageFile = user["photo"] as! PFFile
                             
+                            let username = user["username"] as? String
+                            print("username: \(username)")
+
+                            
                             imageFile.getDataInBackground(block: { (data, error) in
                                 
+                        
                                 if let imageData = data {
                                     
                                     self.imageView.image = UIImage(data: imageData)
-                                    
-                                    
+                            
                                 }
                                 
+                                
                             })
+
                             
                         }
                         
@@ -183,6 +199,7 @@ class SwipingViewController: UIViewController {
             
             
         }) // end */
+        
         
         
     }
@@ -199,9 +216,20 @@ class SwipingViewController: UIViewController {
         
         imageView.addGestureRecognizer(gesture)
         
+        PFGeoPoint.geoPointForCurrentLocation { (geopoint, error) in
+            
+            if let geopoint = geopoint {
+            
+                PFUser.current()?["location"] = geopoint
+                
+                PFUser.current()?.saveInBackground()
+                
+            }
+            
+        }
+        
         updateImage()
         
-                
     }
 
     override func didReceiveMemoryWarning() {
