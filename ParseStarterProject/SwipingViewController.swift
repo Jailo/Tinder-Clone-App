@@ -13,6 +13,7 @@ class SwipingViewController: UIViewController {
 
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var usernameLabel: UILabel!
     
     var displayedUserID = ""
     
@@ -136,13 +137,13 @@ class SwipingViewController: UIViewController {
                     
                 }
                 
-                if (self.displayedUserID).isEmpty {
+                /* delete ? if (self.displayedUserID).isEmpty {
                     
                     print("DisplayedUserID Is empty")
                     
                     userCount = 0
                     
-                }
+                } */
            
             } else if userCount == 0 {
                 
@@ -153,6 +154,8 @@ class SwipingViewController: UIViewController {
                 self.errorLabel.text = "There are no more users in your area. Check back again later"
                 
                 self.errorLabel.textColor = UIColor.white
+                
+                self.usernameLabel.text = ""
                 
             } else {
                 print("...Still swiping through users...")
@@ -173,7 +176,8 @@ class SwipingViewController: UIViewController {
                             let imageFile = user["photo"] as! PFFile
                             
                             let username = user["username"] as? String
-                            print("username: \(username)")
+                            
+                            self.usernameLabel.text = username
 
                             
                             imageFile.getDataInBackground(block: { (data, error) in

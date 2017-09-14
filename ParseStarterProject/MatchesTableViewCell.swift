@@ -11,6 +11,8 @@ import Parse
 
 class MatchesTableViewCell: UITableViewCell {
 
+    @IBOutlet var matchesUsernameLabel: UILabel!
+    
     @IBOutlet var userIdLabel: UILabel!
     
     @IBOutlet var userImageView: UIImageView!
@@ -24,6 +26,7 @@ class MatchesTableViewCell: UITableViewCell {
         print(userIdLabel.text)
         print(messageTextField.text)
         
+      
         let message = PFObject(className: "Message")
         
         message["sender"] = PFUser.current()?.objectId!
@@ -40,6 +43,16 @@ class MatchesTableViewCell: UITableViewCell {
         }
         
         message.saveInBackground()
+        
+        //create alert here
+        
+        
+        let alert = UIAlertView()
+        alert.title = "Message Sent"
+        alert.message = "Your message has been sent"
+        alert.addButton(withTitle: "Ok")
+        alert.show()
+        
         
         messageTextField.text = ""
         

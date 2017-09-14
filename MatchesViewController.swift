@@ -16,6 +16,9 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
     var images = [UIImage]()
     var userIds = [String]()
     var messages = [String]()
+    var usernames = [String]()
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +34,17 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         query?.findObjectsInBackground(block: { (objects, error) in
             
+            if error != nil {
+                print(error)
+            }
+            
             if let users = objects {
                 
                 for object in users {
                     
                     if let user = object as? PFUser {
+                        
+                        let username = user["username"] as? String
                         
                         let imageFile = user["photo"] as! PFFile
                         
@@ -68,11 +77,14 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                                         
                                     }
                                     
+                                    
                                     self.messages.append(messageText)
                                     
                                     self.images.append(UIImage(data: imageData)!)
                                     
                                     self.userIds.append(user.objectId!)
+                                    
+                                    self.usernames.append(username!)
                                     
                                     self.tableView.reloadData()
                                     
@@ -91,9 +103,17 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             
         })
+
         
-        
-        
+        if userIds == [] {
+            
+                let alert = UIAlertView()
+                alert.title = "You don't have any matches...yet"
+                alert.message = "Don't feel discouraged, you'll find your bae one day. Check back in later"
+                alert.addButton(withTitle: "Ok")
+                alert.show()
+ 
+        }
         
 
         // Do any additional setup after loading the view.
@@ -122,6 +142,8 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.userIdLabel.text = userIds[indexPath.row]
         
         cell.messagesLabel.text = messages[indexPath.row]
+        
+        cell.matchesUsernameLabel.text = usernames[indexPath.row]
         
         return cell
         
