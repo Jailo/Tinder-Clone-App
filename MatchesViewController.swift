@@ -33,10 +33,20 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         
         query?.findObjectsInBackground(block: { (objects, error) in
-            
-            if error != nil {
-                print(error)
+           
+            if objects! == [] {
+                
+                let alert = UIAlertController(title: "You don't have any matches...yet", message: "Don't feel discouraged, you'll find your bae one day. Check back in later", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {
+                    
+                    action in self.performSegue(withIdentifier: "backSegue", sender: self)
+                }))
+                
+                self.present(alert, animated: true, completion: nil)
+                
             }
+
             
             if let users = objects {
                 
@@ -88,12 +98,11 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                                     
                                     self.tableView.reloadData()
                                     
+                                    
                                 })
-                                
                               
-                                
                             }
-                            
+                           
                         })
                         
                     }
@@ -101,21 +110,11 @@ class MatchesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
                 
             }
-            
+
         })
-
         
-        if userIds == [] {
-            
-                let alert = UIAlertView()
-                alert.title = "You don't have any matches...yet"
-                alert.message = "Don't feel discouraged, you'll find your bae one day. Check back in later"
-                alert.addButton(withTitle: "Ok")
-                alert.show()
- 
-        }
         
-
+      
         // Do any additional setup after loading the view.
     }
 
